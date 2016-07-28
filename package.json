@@ -1,0 +1,26 @@
+{
+  "name": "earthquake_visualizer",
+  "version": "1.0.0",
+  "description": "This is a sample project that visaulizes RealTime Earthquake datas in the USA. This app is created with the book Reactive Programming with RXJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kreuzerk/earthquakeVisualizer.git"
+  },
+  "keywords": [
+    "JavaScript",
+    "RXJS"
+  ],
+  "author": "Kevin Kreuzer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kreuzerk/earthquakeVisualizer/issues"
+  },
+  "homepage": "https://github.com/kreuzerk/earthquakeVisualizer#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
