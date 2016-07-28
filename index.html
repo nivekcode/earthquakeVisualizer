@@ -2,13 +2,18 @@
 	<head>
 		<title>EarthQuake Visualizer</title>
 		<link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css"/>
+		<link rel="stylesheet" href="./node_modules/leaflet/dist/leaflet.css"/>
+		<link rel="stylesheet" href="./app/main.css" />
 	</head>
 	<body>
 		<div class="container">
 			<h1 class="jumbotron">EarthQuake Visualizer</h1>
+			<div id="map"></div>
 		</div>
 	</body>
 
+	<script type="text/javascript" src="./node_modules/leaflet/dist/leaflet.js"></script>
+	<script type="text/javascript" src="./node_modules/rx/dist/rx.all.js"></script>
 	<script type="text/javascript" src="./app/main.js"></script>
-	
+
 </html>

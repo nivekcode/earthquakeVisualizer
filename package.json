@@ -4,7 +4,8 @@
   "description": "This is a sample project that visaulizes RealTime Earthquake datas in the USA. This app is created with the book Reactive Programming with RXJS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "browser-sync start --server --files *"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,8 @@
   },
   "homepage": "https://github.com/kreuzerk/earthquakeVisualizer#readme",
   "dependencies": {
-    "bootstrap": "^3.3.7"
+    "bootstrap": "^3.3.7",
+    "leaflet": "^0.7.7",
+    "rx": "^4.1.0"
   }
 }
