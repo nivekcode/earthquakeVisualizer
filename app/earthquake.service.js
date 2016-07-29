@@ -1,19 +1,20 @@
-let quakes = Rx.Observable.create((observer) => {
-  //USGS decides that we must use this callback name
-  window.eqfeed_callback = (response) => {
-    observer.onNext(response);
-    observer.onComplete();
-  }
-  loadJSONP(QUAKE_URL);
+let QUAKE_URL = 'http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojsonp';
+
+
+let quakes = Rx.DOM.jsonpRequest({
+  url: QUAKE_URL,
+  jsonpCallback: 'eqfeed_callback'
 })
 .flatMap((dataset) => {
-  return Rx.Observable.from(dataset.features);
-});
+  return Rx.Observable.from(dataset.response.features);
+})
+.map((quake) => ({
+  lat: quake.geometry.coordinates[1],
+  lng: quake.geometry.coordinates[0],
+  size: quake.properties.mag * 10000
+  })
+);
 
 quakes.subscribe((quake) => {
-  console.log(quake);
-  let coords = quake.geometry.coordinates;
-  let size = quake.properties.mag * 1000;
-
-  L.circle([coords[1], coords[0]], size).addTo(map);
+  L.circle([quake.lat, quake.lng], quake.size).addTo(map);
 })
