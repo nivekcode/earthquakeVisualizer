@@ -5,8 +5,8 @@ let earthQuakeData$ = Rx.DOM.jsonpRequest({
   jsonpCallback: 'eqfeed_callback'
 })
 
-let quakes = Rx.Observable
-  .interval(5000)
+let quakes$ = Rx.Observable.from([1])
+  //.interval(5000)
   .flatMap(() => earthQuakeData$)
   .retry(3)
   .flatMap((dataset) => {
@@ -20,6 +20,6 @@ let quakes = Rx.Observable
   })
 );
 
-quakes.subscribe((quake) => {
+quakes$.subscribe((quake) => {
   L.circle([quake.lat, quake.lng], quake.size).addTo(map);
 })
