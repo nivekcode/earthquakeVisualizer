@@ -12,6 +12,7 @@ let mouseMoves$ = Rx.Observable.fromEvent(map, 'click')
   });
 
 mouseMoves$.subscribe((event) => {
+  console.log('ich logge', event);
   let latlng = {
     lat: event.lat,
     lng: event.lng
@@ -21,6 +22,6 @@ mouseMoves$.subscribe((event) => {
 
   L.popup()
     .setLatLng(latlng)
-    .setContent('<p>Hello world!<br />This is a nice popup.</p>')
+    .setContent('<p><h4>' + event.place + '</h4><ul><li>' + event.type + '</li></ul></p>')
     .openOn(map);
 });
