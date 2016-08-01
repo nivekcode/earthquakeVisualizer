@@ -18,10 +18,11 @@ mouseMoves$.subscribe((event) => {
     lng: event.lng
   }
 
-  console.log('events', event);
+  let date = new Date(1324339200000);
+  let time = date.getHours() + ':' + date.getMinutes();
 
   L.popup()
     .setLatLng(latlng)
-    .setContent('<p><h4>' + event.place + '</h4><ul><li>' + event.type + '</li></ul></p>')
+    .setContent('<p><h4>' + event.place + '</h4><ul><li>' + event.type + '</li><li>' + time + '</li></ul></p>')
     .openOn(map);
 });
