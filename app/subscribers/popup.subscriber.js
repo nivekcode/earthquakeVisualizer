@@ -1,17 +1,4 @@
-let mouseMoves$ = Rx.Observable.fromEvent(map, 'click')
-  .map((mouseMove) => {
-    return {
-    lat: mouseMove.latlng.lat,
-    lng: mouseMove.latlng.lng
-    }
-  })
-  .flatMap((latlng) => {
-    return quakes$.filter((quake) => {
-      return quake.lat.toFixed(1) === latlng.lat.toFixed(1) && quake.lng.toFixed(1) === latlng.lng.toFixed(1);
-    })
-  });
-
-mouseMoves$.subscribe((event) => {
+popup$.subscribe((event) => {
   let latlng = {
     lat: event.lat,
     lng: event.lng
