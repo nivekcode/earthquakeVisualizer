@@ -5,5 +5,3 @@ let mouseMoves$ = Rx.Observable.fromEvent(map, 'mousemove')
     lng: mouseMove.latlng.lng
     }
   });
-
-mouseMoves$.subscribe((data) => console.log('Data', data));
